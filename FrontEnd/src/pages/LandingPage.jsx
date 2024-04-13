@@ -16,10 +16,7 @@ const LandingPage = () => {
           <img src={logo} alt="silicon logo" />
           <span className="landing-logo-text"> iliconConnect</span>
         </div>
-        <div className="landing-right"> const handleNavigate = ()=>{
-    const navigate = useNavigate();
-    Navigate("/login",)
-  }
+        <div className="landing-right">
           <span>Create an account</span>
           <button className="landing-login-button">Login</button>
         </div>
