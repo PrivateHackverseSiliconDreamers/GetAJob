@@ -27,7 +27,7 @@ input{
     border: 1px solid var(--border-color);
 }
 input:focus{
-    border: 2px solid var(--border-color);
+    border: 2px solid #a8a8a8;
   
 }
 .label-input{
