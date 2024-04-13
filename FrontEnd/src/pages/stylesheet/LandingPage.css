@@ -1,0 +1,84 @@
+.landing-silicon-logo{
+    color : var(--main-orange);
+    width:23rem;
+    height:2.6rem;
+
+}
+.landing-logo-text{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.landing-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* width:90.31rem; */
+    height: 5.12rem;
+}
+.landing-right{
+    display: flex;
+    justify-content: space-around;
+    font-size: 2rem;
+    font-weight: 600;
+    width:31.62rem;
+    height:4.56rem;
+    align-items: center;
+}
+.landing-right > span{
+    color:var(--light-black-color)
+}
+
+.landing-login-button{
+    color: var(--main-orange);
+    width: 12rem;
+    height: 4.56rem;
+    border-radius: 2.62rem;
+    font-size: 2rem;
+    background-color: transparent;
+    border-color: var(--main-orange);
+}
+
+.container{
+    padding: 1rem;
+    display:flex;
+    width:100%;
+    height: 100vh;
+    flex-flow: column nowrap;
+    gap:4rem;
+}
+
+.landing-body{
+    display: flex;
+    align-items: center;
+}
+.landing-body > div{
+    display: flex;
+    flex-flow: column nowrap;
+    gap:2rem;
+    align-items: center;
+}
+
+.landing-highlight{
+    font-size: 2.1rem;
+    font-weight: 600;
+}
+
+.landing-body-text{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--light-black-color);
+}
+
+.landing-start{
+    background-color:var(--main-orange) ;
+    width: 23.12rem;
+    height: 5.5rem;
+    border-radius: 2.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color:#fff;
+}
+
+button:hover {
+cursor: pointer;
+}
