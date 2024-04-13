@@ -1,5 +1,5 @@
 .landing-container{
-    height: 100dvh;
+    height: 100vh;
     background-color: var(--secondary-orange-fill);
 }
 .header-container{
@@ -15,7 +15,6 @@ button{
 .body-container{
     width: 75%; 
     margin: 0 auto;
-    /* background-color: red; */
     max-width: 1500px;
 }
 
@@ -24,6 +23,7 @@ button{
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
+   
 }
 .landing-silicon-logo{
     color : var(--main-orange);
@@ -58,7 +58,7 @@ button{
     color:var(--light-black-color);
     background-color: inherit;
     border: none;
-    padding: .4em 1.4em;
+    padding: .5em 1.4em;
     font-size: 1.6rem;
     border-radius: 42px;
     font-weight: 500;
@@ -73,28 +73,33 @@ button{
 
 .landing-body{
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center; 
     margin: 2rem 0 0;
+    
 }
-.landing-body > div{
+.hero-body-container{
     display: flex;
-    justify-content: space-between;
-    flex-flow: column wrap;
-    gap: 3.5rem;   
+    flex-direction: column;
+    gap: 3.5rem;
+    width: 45%;
+    /* background-color:pink; */
 }
 .landing-hero-text{
     line-height: 1.3;
+    font-weight: 550;
 }
 .landing-highlight{
     color: var(--main-orange);
 }
 .hero-img-div{
-    align-self: flex-start;
+    align-items: flex-start;
+    width: 55%;
+    /* background-color: red; */
 }
 .hero-img-div img{
     object-fit: contain;
-    width: 730px;
+    width: 100%;
 }
 
 .landing-body-text{
@@ -108,9 +113,9 @@ button{
 }
 .landing-start-btn{
     background-color:var(--main-orange) ;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 550;
-    padding: .6em 1.6em;
+    padding: .6em 1.8em;
     border-radius: 42px;
     color:#fff;
     border: none;
@@ -120,4 +125,13 @@ button{
 
 .landing-start-btn:hover{
     transform: scale(1.02);
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1600px){
+    html{
+        font-size: 12px;
+    }
+    .landing-body{
+        margin: 0px;
+    }
 }
