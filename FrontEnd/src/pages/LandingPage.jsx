@@ -35,7 +35,7 @@ const LandingPage = () => {
       </div>
       <div className="body-container">
         <div className="landing-body">
-          <div>
+          <div className='hero-body-container'>
             <h1 className="landing-hero-text">
               SiliconConnect: Empowering{' '}
               <span className="landing-highlight">Polytechnique Yaoundé's</span>{' '}
@@ -56,6 +56,7 @@ const LandingPage = () => {
               </button>
             </div>
           </div>
+
           <div className="hero-img-div">
             <img src={heroIcon} alt="hero-icon" />
           </div>
