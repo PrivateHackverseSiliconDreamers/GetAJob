@@ -31,37 +31,37 @@ SemiBold: 600;
 Bold: 700; */
 
 @font-face {
-  font-family: 'Rubik';
+  font-family: 'Raleway';
   src: url('/fonts/Raleway-VariableFont_wght.ttf');
   font-weight: 300;
 }
 @font-face {
-  font-family: 'Rubik';
+  font-family: 'Raleway';
   src: url('/fonts/Raleway-VariableFont_wght.ttf');
   font-weight: 400;
 }
 @font-face {
-  font-family: 'Rubik';
+  font-family: 'Raleway';
   src: url('/fonts/Raleway-VariableFont_wght.ttf');
   font-weight: 600;
 }
 @font-face {
-  font-family: 'Rubik';
+  font-family: 'Raleway';
   src: url('/fonts/Raleway-VariableFont_wght.ttf');
   font-weight: 500;
 }
 @font-face {
-  font-family: 'Rubik';
+  font-family: 'Raleway';
   src: url('/fonts/Raleway-VariableFont_wght.ttf');
   font-weight: 450;
 }
 @font-face {
-  font-family: 'Rubik';
+  font-family: 'Raleway';
   src: url('/fonts/Raleway-VariableFont_wght.ttf');
   font-weight: 700;
 }
 @font-face {
-  font-family: 'Rubik';
+  font-family: 'Raleway';
   src: url('/fonts/Raleway-VariableFont_wght.ttf');
   font-weight: 540;
 }
