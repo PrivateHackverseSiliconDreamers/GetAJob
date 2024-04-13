@@ -1,11 +1,12 @@
-import { useContext, createContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
-import SigninPage from "./pages/SigninPage.jsx"
+import SigninPage from "./pages/SigninPage.jsx";
+import Authentication from "./context/authentication.jsx";
+import AuthenticationGuard from "./components/authenticationGuard.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,20 +15,19 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    element:<LoginPage />,
-    path:"/login",
-    errorElement : <ErrorPage />
+    element: <LoginPage />,
+    path: "/login",
+    errorElement: <ErrorPage />,
   },
   {
-    element:<SigninPage />,
-    path:"/signgin",
-    errorElement : <ErrorPage />
+    element: <AuthenticationGuard component= {SigninPage} />,
+    path: "/signin",
+    errorElement: <ErrorPage />,
   },
 ]);
 
-const [user,setUser] = useState("");
-
-
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <Authentication>
+    <RouterProvider router={router} />
+  </Authentication>
 );
