@@ -103,9 +103,22 @@ const LoginPage = () => {
                   <label htmlFor="rememberMe" className="remember-me">
                     Remember Me
                   </label>
+                <div className="login-check-div">
+                  <input
+                    type="checkbox"
+                    className="checkbox-label"
+                    name=""
+                    id="rememberMe"
+                  />
+                  <label htmlFor="rememberMe" className="remember-me">
+                    Remember Me
+                  </label>
                 </div>
 
-                <Link className="forgot-password" to="/">
+                <Link
+                  className="forgot-password"
+                  to="/request-reset-password"
+                >
                   Forgot Password?
                 </Link>
               </div>

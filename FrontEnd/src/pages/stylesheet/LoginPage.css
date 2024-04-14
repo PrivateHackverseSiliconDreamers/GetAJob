@@ -25,12 +25,13 @@ input {
   outline: none;
   border: 1px solid var(--border-color);
 }
-input:focus {
-  border: 2px solid var(--border-color);
+input:focus{
+    border: 2px solid #a8a8a8;
+  
 }
-.label-input {
-  font-weight: 500;
-  font-size: 1.3rem;
+.label-input{
+    font-weight: 500;
+    font-size: 1rem;
 }
 .login-text {
   font-weight: 600;
@@ -75,15 +76,16 @@ input:focus {
   align-items: center;
   gap: 0.3rem;
 }
-.login-btn {
-  background-color: var(--main-orange);
-  border: none;
-  color: white;
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  font-size: 1.4rem;
-  border-radius: 6px;
-  padding: 0.4em 0;
+.login-btn{
+    background-color: var(--main-orange);
+    border: none;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    border-radius: 6px;
+    padding: .4em 0;
+    transition: all .3s ease;
 }
 .login-btn:hover {
   background-color: var(--hover-main-orange);
@@ -100,6 +102,10 @@ input:focus {
   text-decoration: none;
   color: var(--main-orange);
   font-weight: 550;
+}
+.forgot-password:hover{
+    text-decoration: underline;
+    transition: all .3s ease;
 }
 
 input[type="checkbox"] {
