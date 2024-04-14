@@ -3,6 +3,8 @@ import logo from "../assets/images/silicon_logo.svg";
 import "./stylesheet/LoginPage.css";
 import { Link, Form } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { escapedPattern } from "../context/data";
+import Logo from "../components/Logo";
 
 export const action = async ({ request }) => {
   let formData = await request.formData();
@@ -13,25 +15,10 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordIsVisible, setPasswordIsVisible] = useState("");
-  const passwordRegex =
-   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{8,}$/;
-  const escapedPattern = new RegExp(passwordRegex).toString().slice(1,-1);
 
   return (
     <div className="login-container">
-      <div className="header-container">
-        <div className="landing-header">
-          <div className="landing-silicon-logo">
-            <img
-              src={logo}
-              alt="silicon logo"
-              className="landing-silicon-logo-img"
-            />
-
-            <p className="landing-logo-text">iliconConnect</p>
-          </div>
-        </div>
-      </div>
+     <Logo />
       <div className="body-container">
         <div className="body-container-content">
           <Form method="post" className="login-form">
@@ -63,6 +50,7 @@ const LoginPage = () => {
                   }}
                   id="Password-login"
                   type={passwordIsVisible ? "text" : "password"}
+                  required
                   pattern={escapedPattern}
                 />
 
@@ -103,36 +91,25 @@ const LoginPage = () => {
                   <label htmlFor="rememberMe" className="remember-me">
                     Remember Me
                   </label>
-                <div className="login-check-div">
-                  <input
-                    type="checkbox"
-                    className="checkbox-label"
-                    name=""
-                    id="rememberMe"
-                  />
-                  <label htmlFor="rememberMe" className="remember-me">
-                    Remember Me
-                  </label>
+                  <Link
+                    className="forgot-password"
+                    to="/request-reset-password"
+                  >
+                    Forgot Password?
+                  </Link>
                 </div>
-
-                <Link
-                  className="forgot-password"
-                  to="/request-reset-password"
-                >
-                  Forgot Password?
-                </Link>
               </div>
-            </div>
-            <div className="login-div-button">
-              <button className="login-btn" type="submit">
-                Login
-              </button>
-              <p className="not-registered-text">
-                Not registered yet?{" "}
-                <Link className="create-account" to="/">
-                  Create an account
-                </Link>
-              </p>
+              <div className="login-div-button">
+                <button className="login-btn" type="submit">
+                  Login
+                </button>
+                <p className="not-registered-text">
+                  Not registered yet?{" "}
+                  <Link className="create-account" to="/">
+                    Create an account
+                  </Link>
+                </p>
+              </div>
             </div>
           </Form>
         </div>

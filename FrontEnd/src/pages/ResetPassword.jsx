@@ -1,30 +1,30 @@
-import React, { useState } from 'react'
-import logo from '../assets/images/silicon_logo.svg';
-import { Link } from 'react-router-dom';
-import './stylesheet/resetPassword.css'
+import React, { useState } from "react";
+import logo from "../assets/images/silicon_logo.svg";
+import { Link, Form, redirect } from "react-router-dom";
+import "./stylesheet/resetPassword.css";
+import { escapedPattern } from "../context/data";
+import Logo from "../components/Logo";
+
+export const action = async ({ request }) => {
+  let formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  console.log(data);
+  /*
+  *Ici, on va gére la logique de modification du mot de passe
+  */
+ return redirect("/login")
+};
 
 const ResetPassword = () => {
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setconfirmPassword] = useState('');
-   
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setconfirmPassword] = useState("");
+
   return (
     <div className="forgotpwd-container">
-      <div className="header-container">
-        <div className="landing-header">
-          <div className="landing-silicon-logo">
-            <img
-              src={logo}
-              alt="silicon logo"
-              className="landing-silicon-logo-img"
-            />
-
-            <p className="landing-logo-text">iliconConnect</p>
-          </div>
-        </div>
-      </div>
+     <Logo />
       <div className="body-container">
         <div className="forgot-pwd-content-container">
-          <form action="" className="forgot-pwd-form">
+          <Form method="post" className="forgot-pwd-form">
             <p className="forgot-pwd-text">Reset Password</p>
             <div className="forgot-pwd-email-container">
               <label className="label-input" htmlFor="">
@@ -32,9 +32,19 @@ const ResetPassword = () => {
               </label>
               <input
                 type="password"
-                name=""
+                name="new-password"
                 id=""
+                required
+                pattern={escapedPattern}
               />
+            </div>
+            <div className="password-error">
+              Le mot de passe doit au moins contenir 8 caractères,avec au moins
+              <ul style={{ marginLeft: "1rem" }}>
+                {" "}
+                <li>une majuscule</li>, <li>une minuscule</li>,{" "}
+                <li>un chiffre et un caractère spécial</li>
+              </ul>
             </div>
             <div className="forgot-pwd-email-container">
               <label className="label-input" htmlFor="">
@@ -42,27 +52,27 @@ const ResetPassword = () => {
               </label>
               <input
                 type="password"
-                name=""
+                name="confirm-password"
                 id=""
+                required
+                pattern={escapedPattern}
               />
             </div>
-           
+
             <div className="next-button-div column">
-              <button  className="next-button-forgot">
-                Reset Password
-              </button>
+              <button className="next-button-forgot" type="submit">Reset Password</button>
               <Link to="/login" className="back-button-forgot">
                 Cancel
               </Link>
             </div>
-          </form>
+          </Form>
         </div>
         <div className="login-header-body">
           <p>2024 © SiliconConnect - All rights reserved</p>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ResetPassword
+export default ResetPassword;

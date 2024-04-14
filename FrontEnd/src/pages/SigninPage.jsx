@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
-import './stylesheet/SigninPage.css';
-import logo from '../assets/images/silicon_logo.svg';
-import { Link } from 'react-router-dom';
-import PhoneInput from 'react-phone-input-2';
-import 'react-phone-input-2/lib/style.css';
-import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import React, { useState } from "react";
+import "./stylesheet/SigninPage.css";
+import logo from "../assets/images/silicon_logo.svg";
+import { Link } from "react-router-dom";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { escapedPattern } from "../context/data";
+import Logo from "../components/Logo";
 
 const SigninPage = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [phone, setPhone] = useState('');
-  const [passwordIsVisible, setPasswordIsVisible] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [passwordIsVisible, setPasswordIsVisible] = useState("");
 
   let handleOnChangePhone = (value) => {
     setPhone(value);
@@ -20,19 +22,7 @@ const SigninPage = () => {
 
   return (
     <div className="sigin-container">
-      <div className="header-container">
-        <div className="landing-header">
-          <div className="landing-silicon-logo">
-            <img
-              src={logo}
-              alt="silicon logo"
-              className="landing-silicon-logo-img"
-            />
-
-            <p className="landing-logo-text">iliconConnect</p>
-          </div>
-        </div>
-      </div>
+     <Logo />
       <div className="body-container">
         <div className="signin-container-body">
           <form className="signin-form">
@@ -81,10 +71,12 @@ const SigninPage = () => {
                 Password
               </label>
               <input
-                type={passwordIsVisible? "text" : "password"}
+                type={passwordIsVisible ? "text" : "password"}
                 id="passwordSignIn"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                 required
+                  pattern={escapedPattern}
               />
               {passwordIsVisible && (
                 <div className="eyes_style2_signin">
@@ -103,22 +95,30 @@ const SigninPage = () => {
                 </div>
               )}
             </div>
+            <div className="password-error">
+              Le mot de passe doit au moins contenir 8 caractères,avec au moins
+              <ul style={{ marginLeft: "1rem" }}>
+                {" "}
+                <li>une majuscule</li>, <li>une minuscule</li>,{" "}
+                <li>un chiffre et un caractère spécial</li>
+              </ul>
+            </div>
 
             <div className="input-container-sigin">
               <label className="label-signin" htmlFor="phoneNumberSignIn">
                 Phone Number
               </label>
               <PhoneInput
-                country={'cm'}
+                country={"cm"}
                 value={phone}
                 onChange={handleOnChangePhone}
                 autoCorrect="off"
                 inputStyle={{
-                  width: '100%',
-                  height: '2.5rem',
-                  fontFamily: 'Raleway',
-                  fontSize: '1rem',
-                  borderRadius: '6px',
+                  width: "100%",
+                  height: "2.5rem",
+                  fontFamily: "Raleway",
+                  fontSize: "1rem",
+                  borderRadius: "6px",
                 }}
               />
             </div>
@@ -135,10 +135,10 @@ const SigninPage = () => {
             <div className="sigin-button-div">
               <button className="create-button">Create my account</button>
               <p className="not-registered-text">
-                Already have an account?{' '}
+                Already have an account?{" "}
                 <Link to="/login" className="create-account">
                   Log in
-                </Link>{' '}
+                </Link>{" "}
               </p>
             </div>
           </form>

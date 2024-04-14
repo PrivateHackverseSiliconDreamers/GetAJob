@@ -1,28 +1,27 @@
 import React, { useState } from 'react';
 import logo from '../assets/images/silicon_logo.svg';
-import { Link } from 'react-router-dom';
+import { Link,Form, redirect } from 'react-router-dom';
 import './stylesheet/ForgotPassword.css';
+import Logo from '../components/Logo';
+
+export const action = async ({ request }) => {
+  let formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  console.log(data);
+  /*
+  *Ici, on va gére la logique d'authentification
+  */
+ return redirect("/confirm-reset-password")
+};
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
   return (
     <div className="forgotpwd-container">
-      <div className="header-container">
-        <div className="landing-header">
-          <div className="landing-silicon-logo">
-            <img
-              src={logo}
-              alt="silicon logo"
-              className="landing-silicon-logo-img"
-            />
-
-            <p className="landing-logo-text">iliconConnect</p>
-          </div>
-        </div>
-      </div>
+      <Logo />
       <div className="body-container">
         <div className="forgot-pwd-content-container">
-          <form action="" className="forgot-pwd-form">
+          <Form method='post' className="forgot-pwd-form">
             <p className="forgot-pwd-text">Forgot Password</p>
             <div className="forgot-pwd-email-container">
               <label className="label-input" htmlFor="emailForgot-pwd">
@@ -31,8 +30,9 @@ const ForgotPassword = () => {
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                type="text"
-                name=""
+                type="email"
+                name="account-email"
+                required
                 id="emailForgot-pwd"
               />
             </div>
@@ -44,14 +44,14 @@ const ForgotPassword = () => {
               </p>
             </div>
             <div className="next-button-div column">
-              <Link to="/confirm-reset-password" className="next-button-forgot">
+              <button type='submit' className="next-button-forgot">
                 Next
-              </Link>
+              </button>
               <Link to="/login" className="back-button-forgot">
                 Back
               </Link>
             </div>
-          </form>
+          </Form>
         </div>
         <div className="login-header-body">
           <p>2024 © SiliconConnect - All rights reserved</p>
