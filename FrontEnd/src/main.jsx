@@ -6,6 +6,9 @@ import LandingPage from './pages/LandingPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import SigninPage from './pages/SigninPage.jsx';
 import AuthContext from './context/AuthContext.jsx';
+import ForgotPassword from './pages/ForgotPassword.jsx';
+import ResetPassword from './pages/ResetPassword.jsx'
+
 import AuthenticationGuard from './components/authenticationGuard.jsx';
 
 const router = createBrowserRouter([
@@ -20,9 +23,18 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    element: <SigninPage/>,
+    element: <SigninPage />,
     path: '/signin',
     errorElement: <ErrorPage />,
+  },
+  {
+    element: <ForgotPassword />,
+    path: '/request-reset-password',
+    errorElement: <ErrorPage />,
+  },
+  {
+    element: <ResetPassword />,
+    path: '/confirm-reset-password',
   },
 ]);
 

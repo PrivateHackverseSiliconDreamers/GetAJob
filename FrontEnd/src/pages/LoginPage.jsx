@@ -84,7 +84,10 @@ const LoginPage = () => {
                   </label>
                 </div>
 
-                <Link className="forgot-password" to="/">
+                <Link
+                  className="forgot-password"
+                  to="/request-reset-password"
+                >
                   Forgot Password?
                 </Link>
               </div>

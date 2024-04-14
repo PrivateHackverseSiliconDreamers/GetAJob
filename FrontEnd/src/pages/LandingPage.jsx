@@ -2,6 +2,7 @@ import './stylesheet/LandingPage.css';
 import logo from '../assets/images/silicon_logo.svg';
 import heroIcon from '../assets/images/hero-image.svg';
 import { Navigate, useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -23,13 +24,13 @@ const LandingPage = () => {
             <p className="landing-logo-text">iliconConnect</p>
           </div>
           <div className="landing-header-right">
-            <button className="create-acc-button">Create an account</button>
-            <button
-              onClick={handleNavigateLogin}
+            <Link to='/signin' className="create-acc-button">Create an account</Link>
+            <Link
+              to='/login'
               className="landing-login-button"
             >
               Login
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -48,12 +49,12 @@ const LandingPage = () => {
               support you. Join us today and unlock a world of possibilities!
             </p>
             <div className="get-started-btn-div">
-              <button
+              <Link to='/login'
                 className="landing-start-btn"
-                onClick={handleNavigateLogin}
+                
               >
                 Get Started
-              </button>
+              </Link>
             </div>
           </div>
 
