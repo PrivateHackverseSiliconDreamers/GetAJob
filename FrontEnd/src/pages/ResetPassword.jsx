@@ -9,6 +9,10 @@ export const action = async ({ request }) => {
   let formData = await request.formData();
   const data = Object.fromEntries(formData);
   console.log(data);
+  if(data["new-password"]!=data["confirm-password"]){
+    alert("le nouveau mot de passe et le mot de passe de confirmation sont différents");
+    return redirect("");
+  }
   /*
   *Ici, on va gére la logique de modification du mot de passe
   */
