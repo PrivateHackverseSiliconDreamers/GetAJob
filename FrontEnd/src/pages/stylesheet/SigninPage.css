@@ -73,9 +73,21 @@
     background-color: var(--hover-main-orange);
     transition: all .3s ease;
 }
-
+.password-signin-div{
+    position: relative;
+}
+.eyes_style2_signin{
+    position: absolute;
+    right: 2%;
+    top: 58%
+}
 @media only screen and (min-width: 1000px) and (max-width: 1600px){
     .signin-container-body{
         margin-top: 1rem;
+    }
+    .eyes_style2_signin{
+        position: absolute;
+        right: 2%;
+        top: 53%
     }
 }

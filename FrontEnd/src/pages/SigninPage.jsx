@@ -4,6 +4,7 @@ import logo from '../assets/images/silicon_logo.svg';
 import { Link } from 'react-router-dom';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 
 const SigninPage = () => {
   const [firstName, setFirstName] = useState('');
@@ -11,6 +12,7 @@ const SigninPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
+  const [passwordIsVisible, setPasswordIsVisible] = useState('');
 
   let handleOnChangePhone = (value) => {
     setPhone(value);
@@ -74,16 +76,32 @@ const SigninPage = () => {
               />
             </div>
 
-            <div className="input-container-sigin">
+            <div className="input-container-sigin password-signin-div">
               <label className="label-signin" htmlFor="passwordSignIn">
                 Password
               </label>
               <input
-                type="password"
+                type={passwordIsVisible? "text" : "password"}
                 id="passwordSignIn"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              {passwordIsVisible && (
+                <div className="eyes_style2_signin">
+                  <AiOutlineEye
+                    size={24}
+                    onClick={() => setPasswordIsVisible(!passwordIsVisible)}
+                  />
+                </div>
+              )}
+              {!passwordIsVisible && (
+                <div className="eyes_style2_signin">
+                  <AiOutlineEyeInvisible
+                    size={24}
+                    onClick={() => setPasswordIsVisible(!passwordIsVisible)}
+                  />
+                </div>
+              )}
             </div>
 
             <div className="input-container-sigin">
