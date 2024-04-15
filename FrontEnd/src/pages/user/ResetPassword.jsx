@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import logo from "../assets/images/silicon_logo.svg";
 import { Link, Form, redirect } from "react-router-dom";
 import "./stylesheet/resetPassword.css";
-import { escapedPattern } from "../context/data";
-import Logo from "../components/Logo";
+import { escapedPattern } from "../../context/data";
+import Logo from "../../components/Logo";
 
 export const action = async ({ request }) => {
   let formData = await request.formData();

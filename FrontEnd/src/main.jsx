@@ -3,13 +3,14 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './pages/ErrorPage.jsx';
 import LandingPage from './pages/LandingPage.jsx';
-import LoginPage,{action as loginAction} from './pages/LoginPage.jsx';
-import SigninPage from './pages/SigninPage.jsx';
+import LoginPage from './pages/user/LoginPage.jsx';
+import SigninPage from './pages/user/SigninPage.jsx';
 import AuthContext from './context/AuthContext.jsx';
-import ForgotPassword, {action as ForgotPasswordAction} from './pages/ForgotPassword.jsx';
-import ResetPassword, {action as resetPasswordAction} from './pages/ResetPassword.jsx'
+import ForgotPassword, {action as ForgotPasswordAction} from './pages/user/ForgotPassword.jsx';
+import ResetPassword, {action as resetPasswordAction} from './pages/user/ResetPassword.jsx'
 
 import AuthenticationGuard from './components/authenticationGuard.jsx';
+import HomePage from './pages/HomePage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,6 @@ const router = createBrowserRouter([
   {
     element: <LoginPage />,
     path: "/login",
-    action:loginAction,
     errorElement: <ErrorPage />,
   },
   {
@@ -38,6 +38,10 @@ const router = createBrowserRouter([
     element: <ResetPassword />,
     path: '/confirm-reset-password',
     action:resetPasswordAction
+  },
+  {
+    element: <AuthenticationGuard Component={HomePage} />,
+    path: '/home',
   },
 ]);
 

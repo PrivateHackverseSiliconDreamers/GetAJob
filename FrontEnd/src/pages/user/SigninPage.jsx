@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { escapedPattern } from "../context/data";
-import Logo from "../components/Logo";
+import { escapedPattern } from "../../context/data";
+import Logo from "../../components/Logo";
 
 const SigninPage = () => {
   const [firstName, setFirstName] = useState("");

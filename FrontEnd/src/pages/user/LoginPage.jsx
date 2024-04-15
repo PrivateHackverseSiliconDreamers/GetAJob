@@ -1,27 +1,42 @@
 import { useState } from "react";
 import logo from "../assets/images/silicon_logo.svg";
 import "./stylesheet/LoginPage.css";
-import { Link, Form } from "react-router-dom";
+import { Link, Form, redirect, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { escapedPattern } from "../context/data";
-import Logo from "../components/Logo";
+import { escapedPattern } from "../../context/data";
+import Logo from "../../components/Logo";
+import { useAuthentication } from "../../context/AuthContext";
 
-export const action = async ({ request }) => {
+/* export const action = async ({ request }) => {
   let formData = await request.formData();
   const updates = Object.fromEntries(formData);
   console.log(updates);
-};
+  return redirect("/home");
+}; */
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordIsVisible, setPasswordIsVisible] = useState("");
+  const navigate = useNavigate();
+  const {setIsAuthenticated} = useAuthentication();
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const loginData = Object.fromEntries(formData);
+    const {email,password} = loginData;
+    console.log("email:",email,"\npassword:",password);
+    /* Gestion de la logique d'authentification */
+    setIsAuthenticated(true);
+    navigate("/home");
+
+  }
 
   return (
     <div className="login-container">
      <Logo />
       <div className="body-container">
         <div className="body-container-content">
-          <Form method="post" className="login-form">
+          <Form className="login-form" onSubmit={handleSubmit}>
             <p className="login-text">Login in to SiliconConnect</p>
             <div className="email-div-login">
               <label className="label-input" htmlFor="Email-login">
