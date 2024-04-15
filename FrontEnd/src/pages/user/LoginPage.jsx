@@ -1,5 +1,4 @@
 import { useState } from "react";
-import logo from "../assets/images/silicon_logo.svg";
 import "./stylesheet/LoginPage.css";
 import { Link, Form, redirect, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";

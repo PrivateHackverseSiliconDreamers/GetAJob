@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./stylesheet/SigninPage.css";
-import logo from "../assets/images/silicon_logo.svg";
 import { Link } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
@@ -22,7 +21,7 @@ const SigninPage = () => {
 
   return (
     <div className="sigin-container">
-     <Logo />
+      <Logo />
       <div className="body-container">
         <div className="signin-container-body">
           <form className="signin-form">
@@ -75,8 +74,8 @@ const SigninPage = () => {
                 id="passwordSignIn"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                 required
-                  pattern={escapedPattern}
+                required
+                pattern={escapedPattern}
               />
               {passwordIsVisible && (
                 <div className="eyes_style2_signin">

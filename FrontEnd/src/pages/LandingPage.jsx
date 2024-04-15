@@ -1,8 +1,8 @@
 import './stylesheet/LandingPage.css';
-import logo from '../assets/images/silicon_logo.svg';
 import heroIcon from '../assets/images/hero-image.svg';
 import { Navigate, useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
+import Logo from '../components/Logo';
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -14,15 +14,7 @@ const LandingPage = () => {
     <div className="landing-container ">
       <div className="header-container">
         <div className="landing-header">
-          <div className="landing-silicon-logo">
-            <img
-              src={logo}
-              alt="silicon logo"
-              className="landing-silicon-logo-img"
-            />
-
-            <p className="landing-logo-text">iliconConnect</p>
-          </div>
+          <Logo />
           <div className="landing-header-right">
             <Link to='/signin' className="create-acc-button">Create an account</Link>
             <Link

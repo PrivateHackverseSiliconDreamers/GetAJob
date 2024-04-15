@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from '../assets/images/silicon_logo.svg';
 import { Link,Form, redirect } from 'react-router-dom';
 import './stylesheet/ForgotPassword.css';
 import Logo from '../../components/Logo';

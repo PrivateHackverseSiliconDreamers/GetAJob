@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "../assets/images/silicon_logo.svg";
 import { Link, Form, redirect } from "react-router-dom";
 import "./stylesheet/resetPassword.css";
 import { escapedPattern } from "../../context/data";
