@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import logo from '../assets/images/silicon_logo.svg';
-import heroIcon from '../assets/images/hero-image.svg';
+import logo from '../../assets/images/silicon_logo.svg'
+import heroIcon from '../../assets/images/hero-image.svg';
 import './stylesheet/LoginPage.css';
 import { NavLink, Link } from 'react-router-dom';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';

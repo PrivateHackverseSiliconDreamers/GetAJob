@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './stylesheet/SigninPage.css';
-import logo from '../assets/images/silicon_logo.svg';
+import logo from '../../assets/images/silicon_logo.svg'
 import { Link } from 'react-router-dom';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';

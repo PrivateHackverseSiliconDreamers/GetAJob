@@ -23,12 +23,22 @@ input{
     font-family: 'Raleway', sans-serif;
     font-size: 1rem;
     border-radius: 6px;
-    outline: none;
+ 
+    border: 1px solid var(--border-color);
+    
+}
+textarea{
+    padding: .6rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    border-radius: 6px;
     border: 1px solid var(--border-color);
 }
-input:focus{
-    border: 2px solid #a8a8a8;
-  
+/* input:focus{
+    border: 2px solid #a8a8a8;  
+} */
+textarea:focus{
+    border: 2px solid #a8a8a8;  
 }
 .label-input{
     font-weight: 500;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../assets/images/silicon_logo.svg';
+import logo from '../../assets/images/silicon_logo.svg'
 import { Link } from 'react-router-dom';
 import './stylesheet/resetPassword.css'
 

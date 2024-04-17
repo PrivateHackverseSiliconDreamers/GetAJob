@@ -24,11 +24,10 @@ const LandingPage = () => {
             <p className="landing-logo-text">iliconConnect</p>
           </div>
           <div className="landing-header-right">
-            <Link to='/signin' className="create-acc-button">Create an account</Link>
-            <Link
-              to='/login'
-              className="landing-login-button"
-            >
+            <Link to="/signin" className="create-acc-button">
+              Create an account
+            </Link>
+            <Link to="/login" className="landing-login-button">
               Login
             </Link>
           </div>
@@ -36,7 +35,7 @@ const LandingPage = () => {
       </div>
       <div className="body-container">
         <div className="landing-body">
-          <div className='hero-body-container'>
+          <div className="hero-body-container">
             <h1 className="landing-hero-text">
               SiliconConnect: Empowering{' '}
               <span className="landing-highlight">Polytechnique Yaoundé's</span>{' '}
@@ -49,10 +48,7 @@ const LandingPage = () => {
               support you. Join us today and unlock a world of possibilities!
             </p>
             <div className="get-started-btn-div">
-              <Link to='/login'
-                className="landing-start-btn"
-                
-              >
+              <Link to="/login" className="landing-start-btn">
                 Get Started
               </Link>
             </div>
