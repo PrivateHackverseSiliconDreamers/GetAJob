@@ -22,6 +22,5 @@ export class JobApplied extends Jobs {
 
   
 
-  // Autres méthodes CRUD spécifiques à la classe "Message"
 }
 
