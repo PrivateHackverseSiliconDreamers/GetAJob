@@ -1,16 +1,18 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import ErrorPage from './pages/ErrorPage.jsx';
-import LandingPage from './pages/LandingPage.jsx';
-import LoginPage from './pages/user/LoginPage.jsx';
-import SigninPage from './pages/user/SigninPage.jsx';
-import AuthContext from './context/AuthContext.jsx';
-import ForgotPassword, {action as ForgotPasswordAction} from './pages/user/ForgotPassword.jsx';
-import ResetPassword, {action as resetPasswordAction} from './pages/user/ResetPassword.jsx'
+import ErrorPage from './pages/ErrorPage';
+import LandingPage from './pages/LandingPage';
+import LoginPage from './pages/User/LoginPage';
+import SigninPage from './pages/User/SigninPage';
+import AuthContext from './context/AuthContext';
+import ForgotPassword, {action as ForgotPasswordAction} from './pages/User/ForgotPassword';
+import ResetPassword, {action as resetPasswordAction} from './pages/User/ResetPassword'
 
-import AuthenticationGuard from './components/authenticationGuard.jsx';
-import HomePage from './pages/HomePage.jsx';
+import AuthenticationGuard from './components/authenticationGuard';
+import HomePage from './pages/HomePage';
+import CompleteProfile from './pages/User/CompleteProfile';
+import AdminLogin from './pages/Admin/AdminLogin';
 
 const router = createBrowserRouter([
   {
@@ -40,8 +42,17 @@ const router = createBrowserRouter([
     action:resetPasswordAction
   },
   {
+    element: <AdminLogin />,
+    path: '/adminAuth',
+    action:resetPasswordAction
+  },
+  {
     element: <AuthenticationGuard Component={HomePage} />,
     path: '/home',
+  },
+  {
+    element: <AuthenticationGuard Component={CompleteProfile} />,
+    path: '/user-complete-profile',
   },
 ]);
 
