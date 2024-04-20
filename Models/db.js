@@ -5,7 +5,7 @@ const db = new sqlite3.Database('../database.db')
 db.serialize(()=>{
   db.run(`
   CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY ,
     FirstName TEXT,
     LastName TEXT,
     Email TEXT,
@@ -21,7 +21,7 @@ db.serialize(()=>{
 `);
   db.run( `
   CREATE TABLE IF NOT EXISTS experience (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY ,
     StartDate TEXT,
     EndDate TEXT,
     Title TEXT,
@@ -31,7 +31,7 @@ db.serialize(()=>{
 `);
   db.run(`
   CREATE TABLE IF NOT EXISTS jobs (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY ,
     JobTitle TEXT,
     Company TEXT,
     Description TEXT,
@@ -45,7 +45,7 @@ db.serialize(()=>{
 `);
 db.run(`
   CREATE TABLE IF NOT EXISTS skills (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY ,
     Title TEXT,
     user_id INTEGER,
     job_id INTEGER,
@@ -55,7 +55,7 @@ db.run(`
 `);
 db.run(`
 CREATE TABLE IF NOT EXISTS experience_needed (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  id INTEGER PRIMARY KEY ,
   Title TEXT,
   job_id INTEGER,
   FOREIGN KEY (job_id) REFERENCES jobs(id)
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS experience_needed (
 `);
   db.run(`
   CREATE TABLE IF NOT EXISTS jobsSaved (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY ,
     JobTitle TEXT,
     Company TEXT,
     Description TEXT,
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS experience_needed (
 `);
 db.run(`
 CREATE TABLE IF NOT EXISTS jobsApplied (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  id INTEGER PRIMARY KEY ,
   JobTitle TEXT,
   Company TEXT,
   Description TEXT,

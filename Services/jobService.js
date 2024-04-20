@@ -6,17 +6,9 @@ import { JobSaved } from "../Models/job_saved";
 import { JobApplied } from "../Models/job_applied";
 
 export function createJob(job){
-    
+    job.save()
     db.run(
-        `INSERT INTO jobs (JobTitle,Company,Description,Type,location,city,StartDate,Duration) VALUES (?, ?, ?,?,?,?,?,?)`,
-        [job.JobTitle,job.Company,job.Description,job.Type,job.location,job.city,job.StartDate,job.Duration],
-        function (err) {
-          if (err) {
-            console.error(err.message);
-          } else {
-            console.log(`Job "${job.JobTitle}"  a été créée.`);
-          }
-        }
+        job.save()
       );
 }
 
@@ -31,15 +23,15 @@ export function EditJob(job,id){
     })
 }
 
-export function deleteJob(Title) {
+export function deleteJob(id) {
     db.run(
-      `DELETE FROM jobs WHERE Jobtitle = ?`,
-      [Title],
+      `DELETE FROM jobs WHERE id = ?`,
+      [id],
       function (err) {
         if (err) {
           console.error(err.message);
         } else {
-          console.log(`Job "${Title}" supprimée.`);
+          console.log(`Job "${id}" supprimée.`);
         }
       }
     );
@@ -71,12 +63,12 @@ export function getAllJobs() {
     });
 }
 
-export function SaveJob(job,id){
-    const jobsaved=new JobSaved(job.JobTitle,job.Company,job.Description,job.Type,job.location,job.city,job.StartDate,job.Duration,id)
-    jobsaved.SaveJob();
+export function SaveJob(job){
+    //const jobsaved=new JobSaved(job.JobTitle,job.Company,job.Description,job.Type,job.location,job.city,job.StartDate,job.Duration,id)
+    job.SaveJob();
 }
 
-export function ApplyJob(job,id){
-    const jobApplied=new JobApplied(job.JobTitle,job.Company,job.Description,job.Type,job.location,job.city,job.StartDate,job.Duration,id)
-    jobApplied.SaveJobApplied();
+export function ApplyJob(job){
+    //const jobApplied=new JobApplied(job.JobTitle,job.Company,job.Description,job.Type,job.location,job.city,job.StartDate,job.Duration,id)
+    job.SaveJobApplied();
 }
