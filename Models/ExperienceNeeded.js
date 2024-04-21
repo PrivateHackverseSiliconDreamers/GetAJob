@@ -1,11 +1,11 @@
-const sqlite3 = require('sqlite3').verbose();
+import sqlite3 from 'sqlite3';
 
 export class ExperienceNeeded {
-  id=0
+  my_id=0
   constructor(Title) {
     this.Title = Title;
-    this.id=id;
-    id++
+    this.id=ExperienceNeeded.my_id++;
+    //id++
   }
 
   save() {

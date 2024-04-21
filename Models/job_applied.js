@@ -1,14 +1,14 @@
-const sqlite3 = require('sqlite3').verbose();
+import sqlite3 from 'sqlite3';
 
-import{ Jobs } from "./Jobs"
+import{ Job } from "./Jobs.js"
 
 
-export class JobApplied extends Jobs {
-  id=0
+export class JobApplied extends Job {
+ 
   constructor(JobTitle,Company,Description,Type,location,city,StartDate,Duration,user_id) {
     this.user_id = user_id;
     super(id,JobTitle,Company,Description,Type,location,city,StartDate,Duration);
-    id++
+    
   }
 
   SaveJobApplied() {

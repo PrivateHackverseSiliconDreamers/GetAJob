@@ -1,7 +1,7 @@
-const sqlite3=require("sqlite3").verbose()
+import sqlite3 from 'sqlite3';
 const db=new sqlite3.Database("../database.db")
 
-import {User} from "../Models/Users"
+import {User} from "../Models/Users.js"
 
 export function Authentification(Email){
     return new Promise((resolve,reject)=>{
@@ -18,4 +18,5 @@ export function Authentification(Email){
 
 export function createUser(user){
     user.save()
+    return user.id;
 }

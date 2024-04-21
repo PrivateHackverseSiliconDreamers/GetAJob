@@ -1,12 +1,13 @@
-const express = require ("express")
-const router=express.Router()
-
+import express from 'express';
+const router = express.Router();
 import {
     PostJob,
-    getAllJobs,
-    SaveJobs,
-    ApplyJobs
-} from "../Controllers/jobController"
+    editJob,
+    DeleteJob,
+    GetAllJobs,
+    saveJobs,
+    applyJobs
+} from "../Controllers/jobController.js"
 
 
 
@@ -18,8 +19,8 @@ router.route("/create").post(PostJob)
 
 // modify methods 
 
-router.route("/save").put(SaveJobs)
-router.route("/Apply").put(ApplyJobs)
+router.route("/save").put(saveJobs)
+router.route("/apply").put(applyJobs)
 //router.route("/nonCompletedTask").put(noncompletetask)
 //router.route("/update/description").put(updatetaskdesc)
 //router.route ("/update/password").put(updatetaskpass)
@@ -28,7 +29,7 @@ router.route("/Apply").put(ApplyJobs)
 //get methods
 
 //router.route("/get").get(gettask)
-router.route("/getAll").get(getAllJobs)
+router.route("/getAll").get(GetAllJobs)
 //router.route("/getAllfolder").get(getallstackfolder)
 //router.route("/getAllTaskCompleted").get(getallstackcompleted)
 
@@ -38,4 +39,4 @@ router.use ("/",(req,res,next)=>{
     res.status(404).json({error:"page not found "})
 })
 
-module.exports=router;
+export default router;

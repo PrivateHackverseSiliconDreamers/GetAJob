@@ -1,11 +1,11 @@
-const sqlite3 = require('sqlite3').verbose();
+import sqlite3 from 'sqlite3';
 
  export class User {
 
-  id=0
-  constructor(FirstName,LastName,Email,Password,PhoneNumber,About,Education,Language,Skils,location,City) {
+  my_id=0
+  constructor(FirstName,LastName,Email,Password,PhoneNumber,About,Education,Language,location,City) {
     this.FirstName=FirstName
-    this.id=id
+    this.id=User.my_id++
     this.LastName=LastName
     this.Email=Email
     this.Password=Password
@@ -13,16 +13,16 @@ const sqlite3 = require('sqlite3').verbose();
     this.About=About
     this.Education=Education
     this.Language=Language
-    this.Skils=Skils
     this.location=location
     this.City=City
-    id++
+    User.my_id=User.my_id+1
   }
+
 
   save() {
     const db = new sqlite3.Database('database.db');
-    const query = `INSERT INTO users (id,FirstName,LastName,Email,Password,PhoneNumber,About,Education,Language,Skils,location,City) VALUES (?, ?, ?,?,?,?,?,?,?,?,?)`;
-    db.run(query, [this.id,this.FirstName,this.LastName,this.Email,this.Password,this.PhoneNumber,this.About,this.Education,this.Language,this.Skils,this.location,this.City], function(err) {
+    const query = `INSERT INTO users (id,FirstName,LastName,Email,Password,PhoneNumber,About,Education,Language,location,City) VALUES (?, ?, ?,?,?,?,?,?,?,?,?)`;
+    db.run(query, [this.id,this.FirstName,this.LastName,this.Email,this.Password,this.PhoneNumber,this.About,this.Education,this.Language,this.location,this.City], function(err) {
       if (err) {
         console.error(err);
       }

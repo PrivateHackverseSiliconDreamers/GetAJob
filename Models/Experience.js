@@ -1,20 +1,21 @@
-const sqlite3 = require('sqlite3').verbose();
+import sqlite3 from 'sqlite3';
 
 export class Experience {
 
-  id=0;
-  constructor(StartDate,EndDate,Title) {
+  my_id=0;
+  constructor(user_id,StartDate,EndDate,Title) {
     this.StartDate = StartDate;
-    this.id=id;
+    this.id=Experience.my_id;
+    this.user_id=user_id;
     this.EndDate = EndDate;
     this.Title = Title;
-    id++
+    //id++
   }
 
   save() {
     const db = new sqlite3.Database('database.db');
-    const query = `INSERT INTO experience (id,StartDate,EndDate,Title) VALUES (?, ?, ?,?)`;
-    db.run(query, [this.id,this.StartDate, this.EndDate, this.Title], function(err) {
+    const query = `INSERT INTO experience (id,user_id,StartDate,EndDate,Title) VALUES (?,?, ?, ?,?)`;
+    db.run(query, [this.id,this.user_id,this.StartDate, this.EndDate, this.Title], function(err) {
       if (err) {
         console.error(err);
       }

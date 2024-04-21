@@ -1,13 +1,17 @@
-const express=require("express")
-require("dotenv").config({path:"./.env"})
-const debug=require("debug")("server$")
-const app=express()
-const cors=require("cors")
-const bodyParser=require("body-parser")
+import express from "express";
+import dotenv from "dotenv";
+import debug from "debug";
+import cors from "cors";
+import bodyParser from "body-parser";
+import usersRoute from "./routes/UsersRoute.js";
+import jobRoute from "./routes/JobRoute.js";
 
-const port = process.env.PORT_SERVER || "127.0.0.1";
-const host = process.env.LOCALHOST||8000;
+dotenv.config({ path: "./.env" });
+const app = express();
+const serverDebug = debug("server$");
 
+const port = 8000 ;
+const host =  "127.0.0.1";
 
 app.use(bodyParser.json());
 app.use(express.json());
@@ -22,14 +26,14 @@ app.use((_, res, next) => {
   next();
 });
 
-app.use("/getaJob/users", require("./routes/UsersRoute"));
-app.use("/getaJob/Job", require("./routes/taskRoutes"));
+app.use("/getaJob/users", usersRoute);
+app.use("/getaJob/Job", jobRoute);
 
-app.post("/hello",(req,res,next)=>{
-  debug("hello world")
-  res.send({message:"hello how are you"})
-})
+app.post("/hello", (req, res, next) => {
+  serverDebug("hello world");
+  res.send({ message: "hello how are you" });
+});
 
 app.listen(port, host, () => {
-    debug(`Server is running on ${host}:${port}`);
+  console.log(`Server is running on ${host}:${port}`);
 });

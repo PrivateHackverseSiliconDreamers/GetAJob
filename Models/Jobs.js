@@ -1,11 +1,11 @@
-const sqlite3 = require('sqlite3').verbose();
+import sqlite3 from 'sqlite3';
 
 export class Job {
 
-   id=0
+   my_id=0
   constructor(JobTitle,Company,Description,Type,location,city,StartDate,Duration) {
     this.JobTitle = JobTitle;
-    this.id=id;
+    this.id=Job.my_id++;
     this.Company = Company;
     this.Description = Description;
     this.Type = Type;
@@ -14,7 +14,6 @@ export class Job {
     this.pay= pay
     this.StartDate= StartDate
     this.Duration= Duration
-    id++
   }
 
   save() {

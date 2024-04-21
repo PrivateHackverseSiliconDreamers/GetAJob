@@ -1,4 +1,4 @@
-import { Job } from "../Models/Jobs";
+import { Job } from "../Models/Jobs.js";
 import{
     createJob,
     EditJob,
@@ -6,12 +6,12 @@ import{
     getAllJobs,
     SaveJob,
     ApplyJob
-} from "../Services/jobService"
+} from "../Services/jobService.js"
 
-import { JobSaved } from "../Models/job_saved";
-import { JobApplied } from "../Models/job_applied";
+import { JobSaved } from "../Models/job_saved.js";
+import { JobApplied } from "../Models/job_applied.js";
 
-exports.EditJob=async (req, res, next)=> {
+export const editJob=async (req, res, next)=> {
 
     const job =new Job(req.body.JobTitle,req.body.Company,req.body.Description,req.body.Type,req.body.location,req.body.city,req.body.pay,req.body.StartDate,req.body.Duration)
     try {
@@ -22,7 +22,7 @@ exports.EditJob=async (req, res, next)=> {
     }
 };
 
-exports.PostJob=async (req, res, next)=> {
+export const PostJob=async (req, res, next)=> {
 
     const job =new Job(req.body.JobTitle,req.body.Company,req.body.Description,req.body.Type,req.body.location,req.body.city,req.body.pay,req.body.StartDate,req.body.Duration)
     const skills= req.body.skills
@@ -41,7 +41,7 @@ exports.PostJob=async (req, res, next)=> {
     }
 };
 
-exports.deleteJob=async (req, res, next)=> {
+export const DeleteJob=async (req, res, next)=> {
 
     const {id}=req.body
     console.log(id)
@@ -53,7 +53,7 @@ exports.deleteJob=async (req, res, next)=> {
     }
 };
 
-exports.getAllJobs= async(req,res,next)=> {
+export const GetAllJobs= async(req,res,next)=> {
     
     try {
         getAllJobs()
@@ -68,7 +68,7 @@ exports.getAllJobs= async(req,res,next)=> {
     }
 };
 
-exports.SaveJobs=async(req,res,next)=> {
+export const saveJobs=async(req,res,next)=> {
     
     const job =new JobSaved(req.body.JobTitle,req.body.Company,req.body.Description,req.body.Type,req.body.location,req.body.city,req.body.pay,req.body.StartDate,req.body.Duration)
     const id= req.body.user_id
@@ -82,7 +82,7 @@ exports.SaveJobs=async(req,res,next)=> {
 
 }
 
-exports.ApplyJobs=async(req,res,next)=>{
+export const applyJobs =async(req,res,next)=>{
     const job =new JobApplied(req.body.JobTitle,req.body.Company,req.body.Description,req.body.Type,req.body.location,req.body.city,req.body.pay,req.body.StartDate,req.body.Duration,req.body.user_id)
     const id= req.body.user_id
 
@@ -93,3 +93,12 @@ exports.ApplyJobs=async(req,res,next)=>{
         next(error)
     }
 }
+
+//export default {
+    PostJob,
+    editJob,
+    DeleteJob,
+    GetAllJobs,
+    saveJobs,
+    applyJobs
+//}

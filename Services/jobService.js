@@ -1,9 +1,9 @@
-const sqlite3 = require("sqlite3").verbose();
+import sqlite3 from 'sqlite3';
 const db = new sqlite3.Database("../database.db");
 
-import {Job} from "../Models/Jobs"
-import { JobSaved } from "../Models/job_saved";
-import { JobApplied } from "../Models/job_applied";
+import {Job} from "../Models/Jobs.js"
+import { JobSaved } from "../Models/job_saved.js";
+import { JobApplied } from "../Models/job_applied.js";
 
 export function createJob(job){
     job.save()
