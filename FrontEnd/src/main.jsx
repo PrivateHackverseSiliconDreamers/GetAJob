@@ -1,17 +1,18 @@
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './pages/ErrorPage';
 import LandingPage from './pages/LandingPage';
-import LoginPage from './pages/User/LoginPage';
-import SigninPage from './pages/User/SigninPage';
+import LoginPage from './pages/user/LoginPage';
+import SigninPage from './pages/user/SigninPage';
 import AuthContext from './context/AuthContext';
-import ForgotPassword, {action as ForgotPasswordAction} from './pages/User/ForgotPassword';
-import ResetPassword, {action as resetPasswordAction} from './pages/User/ResetPassword'
+import ForgotPassword, {action as ForgotPasswordAction} from './pages/user/ForgotPassword';
+import ResetPassword, {action as resetPasswordAction} from './pages/user/ResetPassword'
 
 import AuthenticationGuard from './components/authenticationGuard';
 import HomePage from './pages/HomePage';
-import CompleteProfile from './pages/User/CompleteProfile';
+import CompleteProfile from './pages/user/CompleteProfile';
 import AdminLogin from './pages/Admin/AdminLogin';
 
 const router = createBrowserRouter([

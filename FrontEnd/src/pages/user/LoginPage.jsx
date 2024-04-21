@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./stylesheet/LoginPage.css";
-import { Link, Form, redirect, useNavigate } from "react-router-dom";
+import { Link, Form, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { escapedPattern } from "../../context/data";
 import Logo from "../../components/Logo";
