@@ -1,8 +1,8 @@
-import { signinURL, createUserURL } from "../context/Routes";
+import { loginURL, createUserURL } from "./Routes";
 import axios from "axios";
 
 const authSiginin = async (email,password)=>{
-    const response =  await axios.post(signinURL,{email,password});
+    const response =  await axios.post(loginURL,{email,password});
     if(response.status==200){
         if(response.data.accessToken){
             localStorage.setItem("user",JSON.stringify(response.data));

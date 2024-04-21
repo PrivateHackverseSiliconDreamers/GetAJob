@@ -1,9 +1,14 @@
 import { useAuthentication } from "../context/AuthContext";
-import { Navigate, useLocation } from "react-router";
+import { Navigate } from "react-router";
+import { getCurrentUser } from "../services/authService";
 
 const AuthenticationGuard = ({ Component }) => {
-  const location = useLocation();
-  const { isAuthenticated } = useAuthentication();
+  const { isAuthenticated, setIsAuthenticated } = useAuthentication();
+  if(getCurrentUser()){
+    setIsAuthenticated(true);
+  } /* else {
+    setIsAuthenticated(false);
+  } */
   return isAuthenticated ? <Component /> : <Navigate to="/login" />;
 };
 
