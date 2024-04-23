@@ -1,10 +1,10 @@
-import { useState } from "react";
-import "./stylesheet/LoginPage.css";
-import { Link, Form, useNavigate } from "react-router-dom";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { escapedPattern } from "../../context/data";
-import Logo from "../../components/Logo";
-import { useAuthentication } from "../../context/AuthContext";
+import { useState } from 'react';
+import './stylesheet/LoginPage.css';
+import { Link, Form, useNavigate } from 'react-router-dom';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import { escapedPattern } from '../../context/data';
+import Logo from '../../components/Logo';
+import { useAuthentication } from '../../context/AuthContext';
 
 /* export const action = async ({ request }) => {
   let formData = await request.formData();
@@ -13,26 +13,25 @@ import { useAuthentication } from "../../context/AuthContext";
   return redirect("/home");
 }; */
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordIsVisible, setPasswordIsVisible] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordIsVisible, setPasswordIsVisible] = useState('');
   const navigate = useNavigate();
-  const {setIsAuthenticated} = useAuthentication();
-  const handleSubmit=(e)=>{
+  const { setIsAuthenticated } = useAuthentication();
+  const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const loginData = Object.fromEntries(formData);
-    const {email,password} = loginData;
-    console.log("email:",email,"\npassword:",password);
+    const { email, password } = loginData;
+    console.log('email:', email, '\npassword:', password);
     /* Gestion de la logique d'authentification */
     setIsAuthenticated(true);
-    navigate("/home");
-
-  }
+    navigate('/home');
+  };
 
   return (
     <div className="login-container">
-     <Logo />
+      <Logo />
       <div className="body-container">
         <div className="body-container-content">
           <Form className="login-form" onSubmit={handleSubmit}>
@@ -63,7 +62,7 @@ const LoginPage = () => {
                     setPassword(e.target.value);
                   }}
                   id="Password-login"
-                  type={passwordIsVisible ? "text" : "password"}
+                  type={passwordIsVisible ? 'text' : 'password'}
                   required
                   pattern={escapedPattern}
                 />
@@ -88,9 +87,9 @@ const LoginPage = () => {
               <div className="password-error">
                 Le mot de passe doit au moins contenir 8 caractères,avec au
                 moins
-                <ul style={{ marginLeft: "1rem" }}>
-                  {" "}
-                  <li>une majuscule</li>, <li>une minuscule</li>,{" "}
+                <ul style={{ marginLeft: '1rem' }}>
+                  {' '}
+                  <li>une majuscule</li>, <li>une minuscule</li>,{' '}
                   <li>un chiffre et un caractère spécial</li>
                 </ul>
               </div>
@@ -118,8 +117,8 @@ const LoginPage = () => {
                   Login
                 </button>
                 <p className="not-registered-text">
-                  Not registered yet?{" "}
-                  <Link className="create-account" to="/">
+                  Not registered yet?{' '}
+                  <Link className="create-account" to='/signin'>
                     Create an account
                   </Link>
                 </p>

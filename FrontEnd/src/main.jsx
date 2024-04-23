@@ -4,12 +4,15 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './pages/ErrorPage';
 import LandingPage from './pages/LandingPage';
-import LoginPage from './pages/user/LoginPage';
-import SigninPage from './pages/user/SigninPage';
+import LoginPage from './pages/User/LoginPage'
+import SigninPage from './pages/User/SigninPage';
 import AuthContext from './context/AuthContext';
-import ForgotPassword, {action as ForgotPasswordAction} from './pages/user/ForgotPassword';
-import ResetPassword, {action as resetPasswordAction} from './pages/user/ResetPassword'
-
+import ForgotPassword, {
+  action as ForgotPasswordAction,
+} from './pages/user/ForgotPassword';
+import ResetPassword, {
+  action as resetPasswordAction,
+} from './pages/user/ResetPassword';
 import AuthenticationGuard from './components/authenticationGuard';
 import HomePage from './pages/HomePage';
 import CompleteProfile from './pages/user/CompleteProfile';
@@ -23,7 +26,7 @@ const router = createBrowserRouter([
   },
   {
     element: <LoginPage />,
-    path: "/login",
+    path: '/login',
     errorElement: <ErrorPage />,
   },
   {
@@ -32,20 +35,24 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
+    element: <CompleteProfile />,
+    path: '/user-complete-profile',
+  },
+  {
     element: <ForgotPassword />,
     path: '/request-reset-password',
-    action:ForgotPasswordAction,
+    action: ForgotPasswordAction,
     errorElement: <ErrorPage />,
   },
   {
     element: <ResetPassword />,
     path: '/confirm-reset-password',
-    action:resetPasswordAction
+    action: resetPasswordAction,
   },
   {
     element: <AdminLogin />,
     path: '/adminAuth',
-    action:resetPasswordAction
+    action: resetPasswordAction,
   },
   {
     element: <AuthenticationGuard Component={HomePage} />,
