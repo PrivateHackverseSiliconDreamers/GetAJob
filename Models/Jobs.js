@@ -5,7 +5,7 @@ export class Job {
    my_id=0
   constructor(JobTitle,Company,Description,Type,location,city,StartDate,Duration) {
     this.JobTitle = JobTitle;
-    this.id=Job.my_id++;
+    this.id=0;
     this.Company = Company;
     this.Description = Description;
     this.Type = Type;
@@ -18,8 +18,8 @@ export class Job {
 
   save() {
     const db = new sqlite3.Database('database.db');
-    const query = `INSERT INTO jobs (id,JobTitle,Company,Description,Type,location,city,StartDate,Duration) VALUES (?, ?, ?,?,?,?,?,?)`;
-    db.run(query, [this.id,this.JobTitle,this.Company,this.Description,this.Type,this.location,this.city,this.StartDate,this.Duration], function(err) {
+    const query = `INSERT INTO jobs (JobTitle,Company,Description,Type,location,city,StartDate,Duration) VALUES ( ?, ?,?,?,?,?,?)`;
+    db.run(query, [this.JobTitle,this.Company,this.Description,this.Type,this.location,this.city,this.StartDate,this.Duration], function(err) {
       if (err) {
         console.error(err);
       }else{

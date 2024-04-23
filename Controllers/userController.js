@@ -31,18 +31,21 @@ const CreateUser= async(req,res,next)=>{
     const experiences = req.body.Experience
     console.log(user);
     try{
-        const user_id=createUser(user)
+        createUser(user).then(id=>{
+            skills.forEach(a_skill => {
+                const skill=new Skills(a_skill,id,"")
+                //console.log(skill.user_id);
+                skill.save()
+            });
+
+            experiences.forEach(an_experience=> {
+                const experience=new Experience(id,an_experience.StartDate,an_experience.EndDate,an_experience.Title)
+                experience.save()
+            });
+            res.status(200).send({message:"user cree avec succes"})
+
+        })
         console.log(user_id);
-        skills.forEach(a_skill => {
-            const skill=new Skills(a_skill,user.my_id,"")
-            //console.log(skill.user_id);
-            skill.save()
-        });
-        experiences.forEach(an_experience=> {
-            const experience=new Experience(user.my_id,an_experience.StartDate,an_experience.EndDate,an_experience.Title)
-            experience.save()
-        });
-        res.status(200).send({message:"user cree avec succes"})
 
     }catch(error){
         next(error)

@@ -4,14 +4,14 @@ export class ExperienceNeeded {
   my_id=0
   constructor(Title) {
     this.Title = Title;
-    this.id=ExperienceNeeded.my_id++;
+    this.id=0;
     //id++
   }
 
   save() {
     const db = new sqlite3.Database('database.db');
-    const query = `INSERT INTO experience_needed (id,Title) VALUES (?)`;
-    db.run(query, [this.id,this.Title], function(err) {
+    const query = `INSERT INTO experience_needed (Title) VALUES (?)`;
+    db.run(query, [this.Title], function(err) {
       if (err) {
         console.error(err);
       }

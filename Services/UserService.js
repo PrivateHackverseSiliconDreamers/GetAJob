@@ -18,5 +18,15 @@ export function Authentification(Email){
 
 export function createUser(user){
     user.save()
-    return user.id;
+    /*return new Promise((resolve,reject)=>{
+        db.get(`SELECT id FROM users`,[],(err,row)=>{
+            if(err){
+                reject(err)
+            }else{
+                const id= row.id
+                console.log(id);
+                resolve(id)
+            }
+        })
+    })*/
 }
